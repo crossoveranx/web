@@ -4,6 +4,8 @@ import factory
 import pytest
 from grants.models.grant import GrantCLR
 
+from dashboard.tests.factories import ProfileFactory
+
 
 @pytest.mark.django_db
 class GrantCLRFactory(factory.django.DjangoModelFactory):
@@ -15,4 +17,4 @@ class GrantCLRFactory(factory.django.DjangoModelFactory):
     round_num = 2
     start_date = datetime.now()
     end_date = start_date + timedelta(weeks=2)
-    is_active = True
+    owner = factory.SubFactory(ProfileFactory)
