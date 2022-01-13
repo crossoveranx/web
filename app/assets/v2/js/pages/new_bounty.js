@@ -62,8 +62,10 @@ Vue.mixin({
         if (!Object.keys(response).length) {
           return vm.$set(vm.errors, 'issueDetails', 'Nothing found. Please check the issue URL.');
         }
-
+        response.keywords = [ 'biology', 'mathematics', 'astronomy', 'physics', 'computer science', 'statistics', 'economics', 'neuroscience', 'chemistry', 'medicine', 'earth sciences', 'anthropology', 'sociology', 'history', 'business', 'linguistics', 'humanities' ];
+        console.log(response);
         vm.form.issueDetails = response;
+        console.log(vm.form.issueDetails);
         // vm.$set(vm.errors, 'issueDetails', undefined);
       }).catch((err) => {
         console.log(err);

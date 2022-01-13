@@ -1431,7 +1431,9 @@ def styleguide_components(request):
 
 
 def jtbd_template(request, template, title, card_title, card_desc):
+    print(template)
     data = JSONStore.objects.filter(view='jtbd', key=template).first().data
+    print(data)
     context = {
         'title': _(title),
         'card_title': _(card_title),
